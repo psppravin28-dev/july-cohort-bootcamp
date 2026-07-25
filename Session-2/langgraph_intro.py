@@ -29,6 +29,6 @@ builder.add_edge("llm", END)
 graph = builder.compile()
 
 # run the graph
-result = graph.invoke({"messages": [{"role": "user", "content": "Hello, how are you?"}], "counter": 10})
+result = graph.invoke({"messages": [{"role": "user", "content": "who am I?"}], "counter": 10})
 print(result)
 
