@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.messages import AIMessage
 checkpointer = MemorySaver()
+import uuid
 
 load_dotenv()
 
@@ -31,8 +32,8 @@ builder.add_edge("llm", END)
 
 graph = builder.compile(checkpointer=checkpointer)
 
-thread_1 = {"configurable": {"thread_id": "123"}}
-thread_2 = {"configurable": {"thread_id": "456"}}
+thread_1 = {"configurable": {"thread_id": str(uuid.uuid4())}} # Generate a random UUID for the thread
+thread_2 = {"configurable": {"thread_id": str(uuid.uuid4())}}
 # run the graph
 result = graph.invoke({"messages": [{"role": "user", "content": "Hi I am Nachiketh"}], "counter": 10}, thread_1)
 print(result)
