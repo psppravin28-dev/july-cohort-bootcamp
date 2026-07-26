@@ -18,10 +18,13 @@ def add(x: float, y: float) -> float:
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 llm_with_tools = llm.bind_tools([multiply, add])
 
-messages = [
-    HumanMessage(content="What is 123 * 456?")
-]
+# messages = [
+#     HumanMessage(content="What is 123 * 456?")
+# ]
 
+messages = [
+    HumanMessage(content="Who is PM of India?")
+]
 ai_msg = llm_with_tools.invoke(messages)
 messages.append(ai_msg)
 

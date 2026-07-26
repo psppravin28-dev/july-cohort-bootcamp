@@ -65,7 +65,7 @@ openai
 scikit-learn
 matplotlib
 langgraph-checkpoint-redis
-
+grandalf
 # Background Jobs
 upstash-redis
 celery
